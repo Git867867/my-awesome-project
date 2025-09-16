@@ -3,11 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой первый проект</title>
+    <title>Главная - Мой первый проект</title>
+    <meta name="description" content="Добро пожаловать на мой первый сайт. Здесь я учусь фронтенд-разработке.">
     <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <h1>Заглушка</h1>
-    <p>Скоро здесь будет крутой сайт!</p>
+    <!-- Шапка сайта -->
+    <header>
+        <a href="index.html">Мой первый проект</a>
+        <!-- Главное меню навигации -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Уникальное основное содержимое страницы -->
+    <main>
+        <h1>Добро пожаловать на наш сайт!</h1>
+
+        <!-- Секция 1 с якорем -->
+        <section id="services">
+            <h2>Наши услуги</h2>
+            <p>Мы предлагаем обучение современной веб-разработке.</p>
+            <a href="#contacts">Связаться с нами</a> <!-- Якорная ссылка внутри страницы -->
+        </section>
+
+        <!-- Секция 2 с якорем -->
+        <section id="portfolio">
+            <h2>Портфолио</h2>
+            <p>Здесь скоро появятся примеры наших работ.</p>
+        </section>
+
+        <!-- Секция 3 с якорем -->
+        <section id="contacts">
+            <h2>Контактная информация</h2>
+            <p>Email: example@mail.ru</p>
+            <a href="contacts.html">Подробнее</a> <!-- Ссылка на отдельную страницу -->
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <p>&copy; 2025 Мой первый проект. Все права защищены.</p>
+    </footer>
 </body>
 </html>
