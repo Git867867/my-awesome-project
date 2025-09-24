@@ -1,24 +1,22 @@
+// Элементы модального окна и формы
 const dialog = document.getElementById('contactDialog');
 const openBtn = document.getElementById('openDialog');
 const closeBtn = document.getElementById('closeDialog');
 const form = document.getElementById('contactForm');
 let lastFocusedElement = null;
 
-
+/**
+ * Открытие модального окна с фокус-менеджментом
+ */
 function openModal() {
-    // Сохраняем последний активный элемент
     lastFocusedElement = document.activeElement;
+    dialog.hidden = false;
+    document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
     
-    // Показываем модальное окно
-    dialog.showModal();
-    
-    // Фокус на первое поле формы (для доступности)
     const firstInput = dialog.querySelector('input, select, textarea');
     if (firstInput) {
         firstInput.focus();
     }
-    
-    // Ловушка фокуса внутри модалки
     trapFocus();
 }
 
@@ -26,9 +24,9 @@ function openModal() {
  * Закрытие модального окна
  */
 function closeModal() {
-    dialog.close();
+    dialog.hidden = true;
+    document.body.style.overflow = ''; // Восстанавливаем скролл
     
-    // Возвращаем фокус на элемент, который открыл модалку
     if (lastFocusedElement) {
         lastFocusedElement.focus();
     }
