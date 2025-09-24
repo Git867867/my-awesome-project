@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная - Мой первый проект</title>
-    <meta name="description" content="Добро пожаловать на мой первый сайт. Здесь я учусь фронтенд-разработке.">
+    <title>Практика 3 - Форма обратной связи</title>
+    <meta name="description" content="Демонстрация модальной формы с валидацией">
     <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <!-- Шапка сайта -->
     <header>
-        <a href="index.html">Мой первый проект</a>
-        <!-- Главное меню навигации -->
+        <a href="index.html">Мой Awesome Проект</a>
         <nav>
             <ul>
                 <li><a href="index.html">Главная</a></li>
@@ -21,34 +20,103 @@
         </nav>
     </header>
 
-    <!-- Уникальное основное содержимое страницы -->
     <main>
-        <h1>Добро пожаловать на наш сайт!</h1>
-
-        <!-- Секция 1 с якорем -->
-        <section id="services">
-            <h2>Наши услуги</h2>
-            <p>Мы предлагаем обучение современной веб-разработке.</p>
-            <a href="#contacts">Связаться с нами</a> <!-- Якорная ссылка внутри страницы -->
-        </section>
-
-        <!-- Секция 2 с якорем -->
-        <section id="portfolio">
-            <h2>Портфолио</h2>
-            <p>Здесь скоро появятся примеры наших работ.</p>
-        </section>
-
-        <!-- Секция 3 с якорем -->
-        <section id="contacts">
-            <h2>Контактная информация</h2>
-            <p>Email: example@mail.ru</p>
-            <a href="contacts.html">Подробнее</a> <!-- Ссылка на отдельную страницу -->
+        <h1>Практика 3: Форма обратной связи</h1>
+        
+        <section aria-labelledby="practice-description">
+            <h2 id="practice-description">Демонстрация модального окна</h2>
+            <p>Нажмите кнопку ниже чтобы открыть форму обратной связи с валидацией.</p>
+            
+            <!-- Кнопка открытия модалки -->
+            <button id="openDialog" type="button" aria-haspopup="dialog">
+                Написать нам 📧
+            </button>
         </section>
     </main>
 
-    <!-- Подвал сайта -->
+    <!-- Модальное окно с формой -->
+        <!-- Модальное окно с формой -->
+    <div id="contactDialog" class="modal-dialog" aria-labelledby="dialogTitle" aria-modal="true" role="dialog" hidden>
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-content">
+            <h2 id="dialogTitle">Форма обратной связи</h2>
+            
+            <form id="contactForm" novalidate aria-describedby="formInstructions">
+                <p id="formInstructions" class="sr-only">Заполните все обязательные поля формы</p>
+                
+                <fieldset>
+                    <legend class="sr-only">Контактная информация</legend>
+                    
+                    <div class="form-group">
+                        <label for="name">Имя *</label>
+                        <input id="name" name="name" type="text" required minlength="2" 
+                               autocomplete="given-name" aria-required="true"
+                               aria-describedby="nameHelp">
+                        <small id="nameHelp">Минимум 2 символа</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input id="email" name="email" type="email" required 
+                               autocomplete="email" aria-required="true"
+                               aria-describedby="emailHelp">
+                        <small id="emailHelp">Формат: name@example.com</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Телефон *</label>
+                        <input id="phone" name="phone" type="tel" inputmode="tel" 
+                               autocomplete="tel" required aria-required="true"
+                               pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+                               placeholder="+7 (900) 000-00-00"
+                               aria-describedby="phoneHelp">
+                        <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Дата обращения</label>
+                        <input id="date" name="date" type="date" autocomplete="off">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend class="sr-only">Детали обращения</legend>
+                    
+                    <div class="form-group">
+                        <label for="topic">Тема *</label>
+                        <select id="topic" name="topic" required aria-required="true">
+                            <option value="">Выберите тему</option>
+                            <option value="question">Вопрос</option>
+                            <option value="order">Заказ</option>
+                            <option value="feedback">Отзыв</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Сообщение *</label>
+                        <textarea id="message" name="message" rows="5" required 
+                                  aria-required="true" aria-describedby="messageHelp"
+                                  placeholder="Опишите вашу проблему или вопрос..."></textarea>
+                        <small id="messageHelp">Минимум 10 символов</small>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="button" id="closeDialog" aria-label="Закрыть форму">
+                        Закрыть
+                    </button>
+                    <button type="submit" id="submitBtn">
+                        Отправить сообщение
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2025 Мой первый проект. Все права защищены.</p>
+        <p>&copy; 2025 Мой первый проект. Практика 3 - Формы и валидация.</p>
     </footer>
+
+    <script src="../main.js"></script>
 </body>
 </html>
