@@ -288,3 +288,7 @@ footer {
 .modal-content form {
     padding: 1.5rem;
 }
+
+.modal-dialog[hidden] {
+    display: none;
+}
