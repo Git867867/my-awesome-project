@@ -35,79 +35,83 @@
     </main>
 
     <!-- Модальное окно с формой -->
-    <dialog id="contactDialog" aria-labelledby="dialogTitle" aria-modal="true">
-        <h2 id="dialogTitle">Форма обратной связи</h2>
-        
-        <form id="contactForm" method="dialog" novalidate aria-describedby="formInstructions">
-            <p id="formInstructions" class="sr-only">Заполните все обязательные поля формы</p>
+        <!-- Модальное окно с формой -->
+    <div id="contactDialog" class="modal-dialog" aria-labelledby="dialogTitle" aria-modal="true" role="dialog" hidden>
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-content">
+            <h2 id="dialogTitle">Форма обратной связи</h2>
             
-            <fieldset>
-                <legend class="sr-only">Контактная информация</legend>
+            <form id="contactForm" novalidate aria-describedby="formInstructions">
+                <p id="formInstructions" class="sr-only">Заполните все обязательные поля формы</p>
                 
-                <div class="form-group">
-                    <label for="name">Имя *</label>
-                    <input id="name" name="name" type="text" required minlength="2" 
-                           autocomplete="given-name" aria-required="true"
-                           aria-describedby="nameHelp">
-                    <small id="nameHelp">Минимум 2 символа</small>
-                </div>
+                <fieldset>
+                    <legend class="sr-only">Контактная информация</legend>
+                    
+                    <div class="form-group">
+                        <label for="name">Имя *</label>
+                        <input id="name" name="name" type="text" required minlength="2" 
+                               autocomplete="given-name" aria-required="true"
+                               aria-describedby="nameHelp">
+                        <small id="nameHelp">Минимум 2 символа</small>
+                    </div>
 
-                <div class="form-group">
-                    <label for="email">E-mail *</label>
-                    <input id="email" name="email" type="email" required 
-                           autocomplete="email" aria-required="true"
-                           aria-describedby="emailHelp">
-                    <small id="emailHelp">Формат: name@example.com</small>
-                </div>
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input id="email" name="email" type="email" required 
+                               autocomplete="email" aria-required="true"
+                               aria-describedby="emailHelp">
+                        <small id="emailHelp">Формат: name@example.com</small>
+                    </div>
 
-                <div class="form-group">
-                    <label for="phone">Телефон *</label>
-                    <input id="phone" name="phone" type="tel" inputmode="tel" 
-                           autocomplete="tel" required aria-required="true"
-                           pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
-                           placeholder="+7 (900) 000-00-00"
-                           aria-describedby="phoneHelp">
-                    <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
-                </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон *</label>
+                        <input id="phone" name="phone" type="tel" inputmode="tel" 
+                               autocomplete="tel" required aria-required="true"
+                               pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+                               placeholder="+7 (900) 000-00-00"
+                               aria-describedby="phoneHelp">
+                        <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+                    </div>
 
-                <div class="form-group">
-                    <label for="date">Дата обращения</label>
-                    <input id="date" name="date" type="date" autocomplete="off">
-                </div>
-            </fieldset>
+                    <div class="form-group">
+                        <label for="date">Дата обращения</label>
+                        <input id="date" name="date" type="date" autocomplete="off">
+                    </div>
+                </fieldset>
 
-            <fieldset>
-                <legend class="sr-only">Детали обращения</legend>
-                
-                <div class="form-group">
-                    <label for="topic">Тема *</label>
-                    <select id="topic" name="topic" required aria-required="true">
-                        <option value="">Выберите тему</option>
-                        <option value="question">Вопрос</option>
-                        <option value="order">Заказ</option>
-                        <option value="feedback">Отзыв</option>
-                    </select>
-                </div>
+                <fieldset>
+                    <legend class="sr-only">Детали обращения</legend>
+                    
+                    <div class="form-group">
+                        <label for="topic">Тема *</label>
+                        <select id="topic" name="topic" required aria-required="true">
+                            <option value="">Выберите тему</option>
+                            <option value="question">Вопрос</option>
+                            <option value="order">Заказ</option>
+                            <option value="feedback">Отзыв</option>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label for="message">Сообщение *</label>
-                    <textarea id="message" name="message" rows="5" required 
-                              aria-required="true" aria-describedby="messageHelp"
-                              placeholder="Опишите вашу проблему или вопрос..."></textarea>
-                    <small id="messageHelp">Минимум 10 символов</small>
-                </div>
-            </fieldset>
+                    <div class="form-group">
+                        <label for="message">Сообщение *</label>
+                        <textarea id="message" name="message" rows="5" required 
+                                  aria-required="true" aria-describedby="messageHelp"
+                                  placeholder="Опишите вашу проблему или вопрос..."></textarea>
+                        <small id="messageHelp">Минимум 10 символов</small>
+                    </div>
+                </fieldset>
 
-            <div class="form-actions">
-                <button type="button" id="closeDialog" aria-label="Закрыть форму">
-                    Закрыть
-                </button>
-                <button type="submit" id="submitBtn">
-                    Отправить сообщение
-                </button>
-            </div>
-        </form>
-    </dialog>
+                <div class="form-actions">
+                    <button type="button" id="closeDialog" aria-label="Закрыть форму">
+                        Закрыть
+                    </button>
+                    <button type="submit" id="submitBtn">
+                        Отправить сообщение
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2025 Мой первый проект. Практика 3 - Формы и валидация.</p>
