@@ -5,3 +5,38 @@
 
 ## Ссылки
 - [Публичная страница на GitHub Pages](https://Git867867.github.io/my-awesome-project/)
+
+
+# Практика 3: Модальная форма обратной связи
+
+## 📋 Описание проекта
+Демонстрация доступной модальной формы обратной связи с клиентской валидацией.
+
+## 🚀 Live Demo
+[GitHub Pages - Модальная форма](https://Git867867.github.io/my-awesome-project/)
+
+## ✅ Выполненные требования практики
+
+### Поля и семантика (4/4)
+- Валидные типы полей (email, tel, date)
+- Обязательные label для всех полей  
+- Корректные name/id и ARIA-атрибуты
+- Семантическая HTML-разметка
+
+### Валидация (3/3)
+- Required/type/pattern валидация
+- Работает form.checkValidity() и reportValidity()
+- Кастомные сообщения об ошибках
+
+### UX/Доступность (3/3)
+- Видимые фокус-контуры (focus-visible)
+- Фокус-ловушка в модалке
+- Закрытие по Esc и клику на подложку
+- Понятные сообщения об ошибках
+
+## 🛠 Технологии
+- HTML5 (dialog, form validation)
+- CSS3 (Grid, Flexbox, focus-visible)
+- Vanilla JavaScript (Constraint Validation API)
+
+## 📁 Структура проекта
